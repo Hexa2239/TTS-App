@@ -12,7 +12,7 @@ import edge_tts
 
 class TTS():
     
-    voice = "id-ID-ArdiNeural"
+    voice = "en-GB-LibbyNeural"
     data = ""
     tts_cmd = f'edge-tts --voice "{voice}" --text "{data}" --write-media "output.mp3"'
     
@@ -34,6 +34,7 @@ class TTS():
         print("# Speech Finished!")
         time.sleep(0.25)
 
+    device = 0
 
     async def speak_v2(self, text):
         print("# Synthisising")
@@ -51,7 +52,7 @@ class TTS():
 
 
 
-        sd.play(data, fs, device=8)
+        sd.play(data, fs, device=int(self.device))
         sd.wait()
         
         print("# Speech Finished!")
